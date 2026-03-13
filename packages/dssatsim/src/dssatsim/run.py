@@ -417,28 +417,28 @@ def exec(input_file, output_file=None) -> tuple:
 
     # 9. Run
     dssat = DSSAT()
-    results = dssat.run_treatment(
-        field=field,
-        cultivar=crop,
-        planting=planting,
-        simulation_controls=simulation_controls,
-        irrigation=irrigation,
-        fertilizer=fertilizer,
-    )
+    try:
+        results = dssat.run_treatment(
+            field=field,
+            cultivar=crop,
+            planting=planting,
+            simulation_controls=simulation_controls,
+            irrigation=irrigation,
+            fertilizer=fertilizer,
+        )
 
-    # 10. Parse outputs
-    if results is None:
-        print(f"Simulation '{input_data.get('experiment_name', 'unknown')}' did not run successfully.")
-        explanations = SUMMARY_OUT_AS_JSON_NAN
-    else:
-        summary_str = dssat.output_files.get("Summary")
-        if summary_str is None:
-            print("Summary.OUT not found in DSSAT output files.")
+        # 10. Parse outputs
+        if results is None:
+            print(f"Simulation '{input_data.get('experiment_name', 'unknown')}' did not run successfully.")
             explanations = SUMMARY_OUT_AS_JSON_NAN
         else:
-            explanations, _ = explain_summary_out(summary_str, output_file)
-
-    dssat.close()
+            summary_str = dssat.output_files.get("Summary")
+            if summary_str is None:
+                print("Summary.OUT not found in DSSAT output files.")
+                explanations = SUMMARY_OUT_AS_JSON_NAN
+            else:
+                explanations, _ = explain_summary_out(summary_str, output_file)
+    finally:
+        dssat.close()
 
     return output_file, explanations
-
