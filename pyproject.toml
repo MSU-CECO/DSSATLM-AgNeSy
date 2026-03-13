@@ -1,0 +1,7 @@
+[project]
+name = "dssatlm-agnesy"
+version = "0.1.0"
+description = "A Neurosymbolic-like framework binding the DSSAT crop model and LLMs"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
