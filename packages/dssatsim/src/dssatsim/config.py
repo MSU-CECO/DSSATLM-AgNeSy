@@ -145,3 +145,35 @@ ASSUMPTIONS = {
     "organic_matter_management_option": "G",
     "irrigation_operation_code": "IR001",
 }
+
+# Planting defaults — sourced from Kalamazoo SQX file (MCSE2002.SQX)
+PLANTING_DEFAULTS = {
+    "Maize": {
+        "ppop": 6.4,    # Plant population (plants/m2) — SQX line 127
+        "ppoe": 6.4,    # Plant population at emergence
+        "plme": "S",    # Planting method: seed
+        "plds": "R",    # Planting distribution: rows
+        "plrs": 76,     # Row spacing (cm)
+        "plrd": 0,      # Row direction
+        "pldp": 5,      # Planting depth (cm)
+    },
+    "Soybean": {
+        "ppop": 40,     # Plant population (plants/m2) — SQX line 129
+        "ppoe": 40,
+        "plme": "S",
+        "plds": "R",
+        "plrs": 20,     # Row spacing (cm)
+        "plrd": 0,
+        "pldp": 5,
+    },
+    "Wheat": {
+        "ppop": 300,    # TODO: verify — SQX line 132 appears to be a single-plant plot (?)
+        "ppoe": 300,
+        "plme": "S",
+        "plds": "R",
+        "plrs": 19,     # Typical MI field wheat row spacing
+        "plrd": 0,
+        "pldp": 5,
+    },
+}
+
