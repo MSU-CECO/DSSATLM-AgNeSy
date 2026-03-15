@@ -436,8 +436,6 @@ def exec(input_file, output_file=None) -> tuple:
                 explanations = SUMMARY_OUT_AS_JSON_NAN
             else:
                 explanations, _ = explain_summary_out(summary_str, output_file)
-                with open("log.json", "w") as fout:
-                    json.dump(explanations, fout, indent=4)
 
     except Exception as e:
         print(f"Simulation '{input_data.get('experiment_name', 'unknown')}' raised an error: {e}")

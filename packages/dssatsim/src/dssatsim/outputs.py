@@ -32,7 +32,7 @@ def get_proper_description(code: str) -> str:
     return code
 
 
-def get_dssat_code_characteristic(code: str, value, _dssat_output_category: str) -> dict:
+def get_dssat_code_characteristic(code: str, value, dssat_output_category: str) -> dict:
     code_no_suffix = code.split(CDE_SUFIX_SEP)[0]
     base_output = {"code": code, "value": value}
     df = pd.read_csv(ALL_DSSAT_CDE_FILES)
@@ -117,7 +117,7 @@ def summary_str_to_table(summary_str: str) -> pd.DataFrame:
 
     Summary.OUT is fixed-width. TNAM (treatment name) may contain spaces,
     so we locate it by character position from the @ header line, extract it
-    directly, then parse the remaining numeric columns with whitespace splitting.
+    directly, then parse the remaining columns with whitespace splitting.
 
     Args:
         summary_str: Full content of Summary.OUT as a string,
@@ -141,6 +141,7 @@ def summary_str_to_table(summary_str: str) -> pd.DataFrame:
     col_names = _extract_columns_from_header_line(header_lines[-1])
     header_line = header_lines[-1]
 
+    # Find the character positions of TNAM and the column after it (FNAM)
     tnam_start = header_line.index("TNAM")
     tnam_end = tnam_start
     while tnam_end < len(header_line) and header_line[tnam_end] != " ":
@@ -158,6 +159,14 @@ def summary_str_to_table(summary_str: str) -> pd.DataFrame:
         rows.append(tokens[:len(col_names)])
 
     df = pd.DataFrame(rows, columns=col_names)
+
+    string_cols = {"CR", "MODEL", "EXNAME", "TNAM", "FNAM", "WSTA", "SOIL_ID"}
+    for col in df.columns:
+        if col not in string_cols and col != "HYEAR":
+            converted = pd.to_numeric(df[col], errors="coerce")
+            if converted.notna().all():
+                df[col] = converted
+
     df = df.apply(_convert_date_columns, axis=1)
 
     return df
