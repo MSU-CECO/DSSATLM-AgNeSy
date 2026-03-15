@@ -28,8 +28,10 @@ def fetch_weather(
         end_date: End date in YYYY-MM-DD format (YYYY-MM-DD).
 
     Returns:
-        DataFrame with columns: SRAD, TMAX, TMIN, RAIN, indexed by date.
-        Column names match DSSATTools v3 WeatherStation table expectations.
+        DataFrame with columns: date, srad, tmax, tmin, rain.
+        Column names are lowercase to match DSSATTools v3 WeatherRecord
+        parameter names. srad is converted from W/m² (API) to MJ/m²/day
+        (DSSAT requirement) by multiplying by 0.0864.
 
     Raises:
         WeatherAPIError: If the API returns a non-200 response.
@@ -54,14 +56,10 @@ def fetch_weather(
     payload = response.json()
     df = pd.DataFrame(payload["records"])
     df["date"] = pd.to_datetime(df["date"])
-    df = df.set_index("date")
-    df = df.rename(columns={
-        "srad": "SRAD",
-        "tmax": "TMAX",
-        "tmin": "TMIN",
-        "prcp": "RAIN",
-    })
-    df = df[["SRAD", "TMAX", "TMIN", "RAIN"]]
+    df = df.rename(columns={"prcp": "rain"})
+    
+    # DSSAT expects SRAD in MJ/m²/day; the API returns W/m² — convert
+    df["srad"] = df["srad"] * 0.0864
+    df = df[["date", "srad", "tmax", "tmin", "rain"]]
 
     return df
-

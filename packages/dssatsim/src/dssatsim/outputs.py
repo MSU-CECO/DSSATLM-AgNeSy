@@ -5,7 +5,6 @@ Replaces explain_dssat_outputs.py from old dssatsim code. Key differences from v
 - output timeseries come from dssat.output_tables instead of dssat.output[code].
 """
 
-import io
 import json
 import numpy as np
 import pandas as pd
@@ -33,7 +32,7 @@ def get_proper_description(code: str) -> str:
     return code
 
 
-def get_dssat_code_characteristic(code: str, value, dssat_output_category: str) -> dict:
+def get_dssat_code_characteristic(code: str, value, _dssat_output_category: str) -> dict:
     code_no_suffix = code.split(CDE_SUFIX_SEP)[0]
     base_output = {"code": code, "value": value}
     df = pd.read_csv(ALL_DSSAT_CDE_FILES)
@@ -116,6 +115,10 @@ def _convert_date_columns(row: pd.Series) -> pd.Series:
 def summary_str_to_table(summary_str: str) -> pd.DataFrame:
     """Parse Summary.OUT content string into a DataFrame.
 
+    Summary.OUT is fixed-width. TNAM (treatment name) may contain spaces,
+    so we locate it by character position from the @ header line, extract it
+    directly, then parse the remaining numeric columns with whitespace splitting.
+
     Args:
         summary_str: Full content of Summary.OUT as a string,
                      as returned by dssat.output_files["Summary"].
@@ -125,25 +128,36 @@ def summary_str_to_table(summary_str: str) -> pd.DataFrame:
     """
     lines = summary_str.splitlines()
 
-    # Find header lines (lines starting with @ or !)
     header_lines = [l for l in lines if l.startswith("@") or l.startswith("!")]
+    data_lines = [
+        l for l in lines
+        if l.strip() and not l.startswith("@") and not l.startswith("!")
+        and not l.startswith("*")
+    ]
 
-    df = pd.read_csv(
-        io.StringIO(summary_str),
-        sep=r"\s+",
-        skiprows=len(header_lines),
-        header=None,
-    )
+    if not data_lines:
+        return pd.DataFrame()
 
-    # Merge treatment name columns (may be split across 2-3 cols)
-    if len(df[9][0]) == 1:
-        df[8] = df[8].astype(str) + " " + df[9].astype(str) + " " + df[10].astype(str)
-        df.drop(columns=[9, 10], inplace=True)
-    else:
-        df[8] = df[8].astype(str) + " " + df[9].astype(str)
-        df.drop(columns=[9], inplace=True)
+    col_names = _extract_columns_from_header_line(header_lines[-1])
+    header_line = header_lines[-1]
 
-    df.columns = _extract_columns_from_header_line(header_lines[-1])
+    tnam_start = header_line.index("TNAM")
+    tnam_end = tnam_start
+    while tnam_end < len(header_line) and header_line[tnam_end] != " ":
+        tnam_end += 1
+    fnam_start = tnam_end
+    while fnam_start < len(header_line) and header_line[fnam_start] == " ":
+        fnam_start += 1
+
+    rows = []
+    for line in data_lines:
+        tnam_val = line[tnam_start:fnam_start].strip()
+        line_without_tnam = line[:tnam_start] + line[fnam_start:]
+        tokens = line_without_tnam.split()
+        tokens.insert(8, tnam_val)
+        rows.append(tokens[:len(col_names)])
+
+    df = pd.DataFrame(rows, columns=col_names)
     df = df.apply(_convert_date_columns, axis=1)
 
     return df

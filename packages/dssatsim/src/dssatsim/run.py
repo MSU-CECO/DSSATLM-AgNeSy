@@ -22,7 +22,8 @@ from DSSATTools.filex import (
     IrrigationEvent,
     SimulationControls,
     SCGeneral,
-    InitialConditions,
+    SCManagement,
+    SCOptions,
 )
 
 from dssatsim.clients.weather import fetch_weather
@@ -35,7 +36,6 @@ from dssatsim.config import (
     CROP_NAMES_TO_CROP_VARIETIES,
     CROP_VARIETIES_TO_CULTIVAR_CODES,
     PLANTING_DEFAULTS,
-    DSSAT_NA_VALUE,
 )
 
 # ---------------------------------------------------------------------------
@@ -326,15 +326,13 @@ def setup_simulation_controls(
     potas = "Y" if has_potassium else "N"
 
     return SimulationControls(
-        general=SCGeneral(
-            sdate=sdate,
-            harvest=ASSUMPTIONS["harvest_management_option"],
+        general=SCGeneral(sdate=sdate),
+        options=SCOptions(nitro=nitro, phosp=phosp, potas=potas),
+        management=SCManagement(
             irrig=irrig,
             ferti=ferti,
-            nitro=nitro,
-            phosp=phosp,
-            potas=potas,
-        )
+            harvs=ASSUMPTIONS["harvest_management_option"],
+        ),
     )
 
 
@@ -433,11 +431,17 @@ def exec(input_file, output_file=None) -> tuple:
             explanations = SUMMARY_OUT_AS_JSON_NAN
         else:
             summary_str = dssat.output_files.get("Summary")
-            if summary_str is None:
-                print("Summary.OUT not found in DSSAT output files.")
+            if not summary_str:
+                print("Summary.OUT not found or empty in DSSAT output files.")
                 explanations = SUMMARY_OUT_AS_JSON_NAN
             else:
                 explanations, _ = explain_summary_out(summary_str, output_file)
+                with open("log.json", "w") as fout:
+                    json.dump(explanations, fout, indent=4)
+
+    except Exception as e:
+        print(f"Simulation '{input_data.get('experiment_name', 'unknown')}' raised an error: {e}")
+        explanations = SUMMARY_OUT_AS_JSON_NAN
     finally:
         dssat.close()
 
