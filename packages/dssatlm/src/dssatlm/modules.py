@@ -43,6 +43,8 @@ class ParserModule(dspy.Module):
             "is_irrigation_applied": result.is_irrigation_applied,
             "irrigation_application": result.irrigation_application,
             "nitrogen_fertilizer_application": result.nitrogen_fertilizer_application,
+            "phosphorus_fertilizer_application": result.phosphorus_fertilizer_application,
+            "potassium_fertilizer_application": result.potassium_fertilizer_application,
             "question_statements": result.question_statements,
         }
 
@@ -81,13 +83,11 @@ class InterpreterModule(dspy.Module):
         Returns:
             Dict keyed by 'question_1', 'question_2', ... with answer dicts.
         """
-        # Normalise simulation outputs to a JSON string for the prompt
         if isinstance(simulation_outputs_json, dict):
             sim_json_str = json.dumps(simulation_outputs_json, indent=2)
         else:
             sim_json_str = simulation_outputs_json
 
-        # Format questions as a numbered list string
         questions_str = "\n".join(
             f"Question {i}: {q}" for i, q in enumerate(question_statements, 1)
         )
@@ -101,7 +101,7 @@ class InterpreterModule(dspy.Module):
 
         answers = result.answers
 
-        # 'Defensive normalisation': just to ensure all expected question keys exist
+        # Defensive normalisation: ensure all expected question keys exist
         for i, q in enumerate(question_statements, 1):
             key = f"question_{i}"
             if key not in answers:
@@ -115,4 +115,4 @@ class InterpreterModule(dspy.Module):
                 }
 
         return answers
-
+    

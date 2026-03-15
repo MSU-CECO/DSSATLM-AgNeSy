@@ -24,10 +24,19 @@ FAKE_PARSED = {
     "is_irrigation_applied": "no",
     "irrigation_application": [],
     "nitrogen_fertilizer_application": [],
+    "phosphorus_fertilizer_application": [],
+    "potassium_fertilizer_application": [],
     "question_statements": [
         "What would be my crop yield at maturity?",
         "When would I be able to harvest?",
     ],
+}
+
+FAKE_PARSED_WITH_FERTILIZER = {
+    **FAKE_PARSED,
+    "nitrogen_fertilizer_application": [["2023-05-15", 50.0], ["2023-06-01", 30.0]],
+    "phosphorus_fertilizer_application": [["2023-05-15", 20.0]],
+    "potassium_fertilizer_application": [["2023-05-15", 25.0]],
 }
 
 FAKE_SIM_OUTPUTS = {
@@ -217,6 +226,41 @@ class TestParserStep:
 
         with pytest.raises(_PipelineStepError):
             pipeline._run_parser("any query")
+
+    def test_run_parser_returns_all_fertilizer_fields(self, monkeypatch, tmp_path):
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.parser = MagicMock(return_value=FAKE_PARSED_WITH_FERTILIZER)
+
+        result = pipeline._run_parser("some query with fertilizer")
+
+        assert "nitrogen_fertilizer_application" in result
+        assert "phosphorus_fertilizer_application" in result
+        assert "potassium_fertilizer_application" in result
+
+    def test_run_parser_phosphorus_extracted(self, monkeypatch, tmp_path):
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.parser = MagicMock(return_value=FAKE_PARSED_WITH_FERTILIZER)
+
+        result = pipeline._run_parser("some query")
+
+        assert result["phosphorus_fertilizer_application"] == [["2023-05-15", 20.0]]
+
+    def test_run_parser_potassium_extracted(self, monkeypatch, tmp_path):
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.parser = MagicMock(return_value=FAKE_PARSED_WITH_FERTILIZER)
+
+        result = pipeline._run_parser("some query")
+
+        assert result["potassium_fertilizer_application"] == [["2023-05-15", 25.0]]
+
+    def test_run_parser_empty_pk_when_not_mentioned(self, monkeypatch, tmp_path):
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.parser = MagicMock(return_value=FAKE_PARSED)
+
+        result = pipeline._run_parser("query with no fertilizer")
+
+        assert result["phosphorus_fertilizer_application"] == []
+        assert result["potassium_fertilizer_application"] == []
 
 
 # ---------------------------------------------------------------------------

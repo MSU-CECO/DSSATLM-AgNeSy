@@ -17,6 +17,9 @@ import uuid
 from typing import Optional
 
 import dspy
+
+from dotenv import load_dotenv
+load_dotenv()  
 import pandas as pd
 import wandb
 

@@ -81,6 +81,12 @@ class ParserSignature(dspy.Signature):
     nitrogen_fertilizer_application: list = dspy.OutputField(
         desc='List of [date_str, amount_kg_ha] pairs for nitrogen fertilizer. Empty list if none.'
     )
+    phosphorus_fertilizer_application: list = dspy.OutputField(
+        desc='List of [date_str, amount_kg_ha] pairs for phosphorus fertilizer. Empty list if none.'
+    )
+    potassium_fertilizer_application: list = dspy.OutputField(
+        desc='List of [date_str, amount_kg_ha] pairs for potassium fertilizer. Empty list if none.'
+    )
     question_statements: list = dspy.OutputField(
         desc="List of distinct question strings extracted from the farmer's input."
     )
