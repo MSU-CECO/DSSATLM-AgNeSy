@@ -1,0 +1,39 @@
+What would be my above-ground biomass production per unit area?
+What would be my crop yield at maturity?
+How much yield would I be able to harvest by a certain harvest date?
+What would be my harvest index by the time the crop matures?
+What should be the optimum amount of irrigation applications?
+What would be my total irrigation requirement by the end of the season?
+What would be the total precipitation amount during the growing season?
+What would be the total evapotranspiration amount during the growing season?
+What will be the amount of water surface runoff by the end of the season?
+What will be the amount of water drained during the growing season?
+What would be the amount of water available in the soil profile for crop use at the time of crop maturity?
+How many times would I need to apply nitrogen-fertilizer by the end of the cropping season?
+What would be the required amount of nitrogen-fertilizer to apply during the growing season? 
+How much nitrogen would be fixed by the crop by the end of the cropping season?
+How much nitrogen would my crop absorb by the end of the cropping season?
+How much nitrogen was lost due to leaching during the cropping season?
+How much inorganic nitrogen would remain present in the soil by the time the crop matures?
+How much Nitrous oxide would be emitted by the end of the cropping season?
+How many times would I need to apply potassium-fertilizer by the end of the cropping season?
+What would be the required amount of phosphorus-fertilizer to apply during the growing season? 
+How much phosphorus would my crop absorb by the end of the cropping season?
+How much phosphorus would remain present in the soil at the time of crop maturity?
+How many times would I need to apply potassium-fertilizer?
+What is the required amount of potassium-fertilizer  to be applied during the growing season? 
+How much potassium would my crop absorb by the end of the cropping season?
+How much potassium would remain present in the soil at the time of crop maturity?
+How much crop residue I should apply or keep in the field?
+How much carbon dioxyde would be emitted by the end of the cropping season?
+What would be the dry matter-to-irrigation productivity value?
+What would be the crop water productivity by the end of the cropping season?
+How much yield can I produce per unit of irrigated area?
+How much biomass could I produce per unit of Nitrogen fertilizer application?
+How much yield could I produce per unit of Nitrogen fertilizer?
+What would be the duration of the cropping season, from planting to harvest?
+What would be the total precipitation by the end of the cropping season (from planting to harvest)?
+What would be the total evapotranspiration by the end of the cropping season (from planting to harvest)?
+When will my crop start flowering?
+By which date would my crop mature?
+When would I be able to harvest?
