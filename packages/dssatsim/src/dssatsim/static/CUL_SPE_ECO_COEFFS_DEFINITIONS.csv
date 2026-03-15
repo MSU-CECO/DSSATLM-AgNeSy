@@ -1,0 +1,406 @@
+﻿COEFF,DEFINITIONS,UNIT,CATEGORY,SOURCE_FILE,FILE_DESCRIPTION,DSSAT_VERSION
+EXPNO,Number of experiments used to estimate cultivar parameters,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EXP#,"Number of experiments,treatments used to estimate coefficients",#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ECO#,Code for the ecotype to which this cultivar belongs (see *.eco file),#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CSDL,Critical Short Day Length below which reproductive development progresses with no daylength effect (for shortday plants),hour,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PPSEN, Slope of the relative response of development to photoperiod with time (positive for shortday plants),1/hour,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EM-FL,Time between plant emergence and flower appearance (R1),photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FL-SH,Time between first flower and first pod (R3),photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FL-SD,Time between first flower and first seed (R5),photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SD-PM,Time between first seed (R5) and physiological maturity (R7),photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FL-LF,Time between first flower (R1) and end of leaf expansion,photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LFMAX,"Maximum leaf photosynthesis rate at 30 C, 350 vpm CO2, and high light",mg CO2/m2-s,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLAVR,Specific leaf area of cultivar under standard growth conditions,cm2/g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SIZLF,Maximum size of full leaf (three leaflets),cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XFRT,Maximum fraction of daily growth that is partitioned to seed + shell,fr,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WTPSD,Maximum weight per seed,g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SFDUR,Seed filling duration for pod cohort at standard growth conditions,photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SDPDV,Average seed per pod under standard growing conditions,#/pod,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PODUR,Time required for cultivar to reach final pod load under optimal conditions,photothermal days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+THRSH,Threshing percentage. The maximum ratio of (seed/(seed+shell)) at maturity,%,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SDPRO,Fraction protein in seeds,g(protein)/g(seed),GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SDLIP,Fraction oil in seeds,g(oil)/g(seed),GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VAR#,Identification code or number for a specific cultivar,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VAR-NAME,Name of cultivar,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VSEN,sensitivity to vernalisation,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PPSEN,sensitivity to photoperiod,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Pn,Duration of phase n where n is phase number (PVoC.D),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PPSn,"Photoperiod sensitivity,phase(n). % drop in rate,10h pp.change",NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P,Phenology,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+G,Growth,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+N,NotCalibrated,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PANTH,Thermal time from the end of tassel initiation to anthesis (degree days above TBASE),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P1V,"Days,optimum vernalizing temperature,required for vernalization",Vday,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P1D,Photoperiod response (% reduction in rate/10 h drop in pp),%/10h,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P20,Critical photoperiod or the longest day length at which the development occurs at a maximum rate,hours,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P2R,Extent to which phasic development leading to panicle initiation is delayed for each hour increase in photoperiod above P2O,oC.d,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PSAT,Critical photoperiod below which development is not delayed,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PBASE,Ceiling photoperiod above which development is delayed indefinitely,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+THOT,Temperature (oC) above which spikelet sterility is affected by high temperature.,oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHINT,Phyllochron interval,oC.d,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GRNO,Coefficient of kernel number per stem weight at the beginning of grain filling,kernels (g stem)-1,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXFIL,Potential kernel growth rate:  Values between 1.0 and 3.0,mg kernel-1 day-1,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+STMMX,Potential final dry weight of a single tiller values 1.0 - 3.0,g stem-1,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLAP1,ratio of leaf area to mass at emergence,cm2/g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+G#WTS,Standard grain number per unit canopy weight at anthesis,#/g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GWTS,"Standard grain size,optimum conditions,normal plant density",mg,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LA1S,Area of standard first leaf,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAFV,"Increase in potential area of leaves,vegetative phase",fr/leaf,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAFR,"Increase in potential area of leaves,reproductive phase",fr/leaf,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TCLDP,"Temperature (oC) below which panicle initiation is further delayed (other than P1, P2O and P2R) by low temperature.",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TCLDF,Temperature (oC) below which spikelet sterility is affected by low temperature,oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SHWTS,"Standard,non-stressed shoot dry weight (incl.grain),maturity",g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLAS,"Specific leaf area,standard",cm2/g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VREQ,Vernalization required for max.development rate,Vdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VBASE,Vernalization requirement before any effect,Vdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VEFF,Vernalization effect (Rate reduction when unvernalized),fr/leaf,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+su1,Sugary genotypes (earlier cultivars of sweet corn),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+se1,Sugary-enhancer genotypes (increases the sugar level in homozygous su1 germplasm),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+sh2,Shrunken genotypes ('super sweet' cultivars),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+O1,Maximum kernel oil content,%,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MAXGL,Maximum number of green leaf a tiller can hold,#/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MAXDGL,Maximum number of developed (dewlap formed) green leaf a tiller can hold,#/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+N_LF_STK_EM,Number of leaves appeared before stalks emerges at soil surface,#/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+N_LF_IT_FORM,Number of leaves appeared before internode formation,#/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AMAX,Assimilation rate at light saturation point,micromol/m2/s,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EFF,Carboxylation efficiency,micromol[CO2]/m2/s (micromol[PPFD]/m2/s)-1,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CHUSTK,Thermal time for stalk emergence,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CHUPEAK,"Thermal time for tillering peak (only used when competition for light is switched-off, method_pop = 1",oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CHUDEC,Thermal time for tillering senescence,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CHUMAT,Thermal time for population stabilization,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+POPPEAK,"Number of tillers at peak of population, only used if competition for light is switched-off",tillers/m2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TILLOCHRON,Thermal time required for the emergence of one new tiller,oCdays/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLA,Specific Leaf Area,(cm2/g),GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MLA,Maximum leaf area,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLASTOCHRON,Thermal time required for the appearance of one new phytomer,oCdays/phytomer,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+INIT_LF_AREA,Initial leaf area of first appeared leaf,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MAX_INI_LA,Initial leaf area of leaves appeared after top parts formation,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MAX_IT_DW,Maximum Dry Biomass of Internodes,g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MID_TT_IT_GRO,Thermal time where internodes can achieve half of its maximum biomass,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+END_TT_IT_GRO,Thermal time for completion of internode growth,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MID_TT_LF_GRO,Thermal time where leaves can achieve half of its maximum biomass,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+END_TT_LF_GRO,Thermal time for completion of leaf growth,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHTMAX,Maximum amount of CH20 which can be produced if PAR is very high,g[CH2O]/m2-d,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+StkH2OFac,Factor adjusts fresh cane weight according to dry matter by stalk,None,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SuH2OFac,Factor adjusts fresh cane weight according to sucrose by stalk,None,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLF1,"Maximum proportion of available CH2O prioritized to leaves, under source (CH2O) limited conditions, phyllocron interval 1",proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLF2,"Maximum proportion of available CH2O prioritized to leaves, under source (CH2O) limited conditions ,phyllocron interval 2",proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Gamma,Fraction of excess CH2O (sink limited conditions) destined for stalk growth (1-GAMMA goes to sucrose),proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+StkB,Constant used in calculating the rate of increase of each stalk's weight,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+StkM,Coefficient used in calculating the rate of increase of each stalk's weight,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SIZLF,Maximum size of largest leaf. To be used to adjust values generated by the TABEX pair XLFNUM-YLFSZ in the ECO file,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Lisun,PAR intercepted by direct-sun (uppermost) canopy zone,proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Lishd,PAR intercepted by direct-sun plus mid-level canopy zone ,proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TB_1,Base temperature for leaf appearance and primary stalk emergence,oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TO1_1,"Lower optimum temperature, leaf development ",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TO2_1,"Upper optimum temperature, leaf development",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TM_1,"Maximum temperature, leaf development",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PI1,Phyllocron interval 1,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PI2,Phyllocron interval 2,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PSWITCH,Leaf number at which the phyllocron changes.,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DTPI,Thermal time threshold at which phyllocron interval changes from Ph1 to Ph2,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LSFAC,Ratio of leaf sheath DM to leaf blade DM,ratio,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LI1,Light Interception below which there is little competition for light among tillers,proportion,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TELOM,Threshold to tiller emergence (telomechron interval) during early growth prior to light competition among tillers,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TB_2,Base temperature for tiller appearance,oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TO1_2,"Lower optimum temperature, tiller development",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TO2_2,"Upper optimum temperature, tiller development",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TM_2,"Maximum temperature, tiller development",oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Ph1P,"threshold to sprouting, plant cane",oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Ph1R,"threshold to sprouting, ratoon cane",oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Ph2,Growth rate of primary stalk (rate of emergence for plant cane),mm/oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Ph3,Threshold for growth of primary stalk and first tillers and first leaves above the ground surface,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Ph4,Threshold  for tillering and establishment of the foliage ,oCdays,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+StHrv,Number of mature stalks per stool at most recent harvest,tillers,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RTNFC,Number of primary shoots to develop from each mature stalk cut during the previous harvest (ratoon growth only),tillers,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MinGr,Weight below which a tiller having more than CAB X 2 nodes senesces (g),kg/tiller,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RE30C,Respiration coefficient that depends on stalk & root mass at 30C (related in CASUPRO to shade-induced senescence),g CH2O used/kg DW/hr,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RL30C,Respiration coefficient that depends on leaf mass at 30C (related in CASUPRO to shade-induced senescence),g CH2O used/kg DW/hr,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+R30C2,Respiration coefficient that depends on gross photosynthesis at 30C,g CH2O used/kg[CH2O]fixed / hr,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MaxPARCE,"Maximum (no stress) radiation conversion efficiency expressed as assimilate produced before respiration, per unit PAR",g/MJ,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+APFMX,Maximum fraction of dry mass increments that can be allocated to aerial dry mass,t/t,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+STKPFMAX,Fraction of daily aerial dry mass increments partitioned to stalk at high temperatures in a mature crop,t/t on a dry mass basis,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SUCA,Sucrose partitioning parameter: Maximum sucrose contents in the base of stalk,t/t,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBFT,Sucrose partitioning:  Temperature at which partitioning of unstressed stalk mass increments to sucrose is 50% of the maximum value,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXLFAREA,Max leaf area assigned to all leaves above leaf number MXLFARNO,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXLFARNO,Leaf number above which leaf area is limited to MXLFAREA ,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LER0,"Max. leaf elongation rate, per oCd",NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TDELAY,Delay between primary shoot appearance and appearance of first secondary shoot,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TAR0,"Maximum tiller appearance rate, per primary shoot, per oCd",NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+POPTT16,Stalk population at/after 1600 degree days,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTPLNTEM,Thermal time to emergence for a plant crop,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTRATNEM,Thermal time to emergence for a ratoon crop,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CHUPIBASE,Thermal time from emergence to start of stalk growth,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SER0,"Max. stalk elongation rate, per oCd",NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TT_POPGROWTH,Thermal time to peak tiller population ,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LG_AMBASE,"Aerial mass (fresh mass of stalks, leaves, and water attached to them) at which lodging starts",t/ha,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AQP_UP5,Available soil water depletion fraction at which photosynthesis water stress starts,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TC,Upper critical temperature for tuber initiation,oC,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PD,Index that supresses tuber growth during the period that immediately follows tuber induction,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+C/LOL,Land of Lakes,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LH,Holden (Monsanto),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DK,Dekalb (Monsanto),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AS,Asgrow (Monsanto),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PIO,Pioneer,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ALL,Leaf longevity (degree days) of the most longevous leaf,degree days,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AX,Leaf surface area (cm2/leaf) of largest leaf,cm2/leaf,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GT,"Tillering coefficient, equivalent to G1, but on tillers",NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NODWT,Node weight for the first stem of the shoot before branching at 3400 oCd,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NODLT,Mean internode length (cm) for the first stem of the shoot before branching when is lignified,NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LPEFR,Leaf petiole fraction (fr of lamina+petiole),nA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LNSLP,"Slope for leaf production (0.8 low rate, 1.0 medium rate, 1.2 high rate)",#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LLIFA,"Leaf life,from full expansion to start senescence",Thermal units,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAXS,Maximum area/leaf when crop growing without stress,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+BRxFX,Branch number per fork at fork x,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+BxyND,Duration (thermal time) from branch x to branch y,thermal time,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+STFR,Stem fraction of assimilate destined for canopy growth,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SR#W,Storage root number per unit canopy weight at initiation,#/g,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SRFR,Fr.of assimilate designated for tops sent to storage root,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LPEFR,Leaf petiole fraction (fr of lamina+petiole),NA,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAXN2,Node # at which potential area/leaf begins to decline,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAXND,Node # at which maximum potential area/leaf reached,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAFS,End of cycle area/leaf,cm2,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAFND,Node # at which the end of cycle area/leaf reached,#,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+HMPC,Harvest product moisture content,%,GENOTYPE,*.CUL,GENOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AWNS,Awn score (0-10;10=very long),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GN%MN,Minimum grain N,%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GN%S,Standard grain N,%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+HTSTD,Standard canopy height,cm,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+KCAN,PAR extinction coefficient,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LARS,Area of standard reproductive phase leaf,cm2,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LAVS,Area of standard vegetative phase leaf,cm3,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LLIFE,Life of leaves during vegetative phase (phyllochrons),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LSPHE,Final leaf senescence ends (GrowhStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LSPHS,Final leaf senescence starts (GrowhStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P2FR1,Duration of phase terminal spikelet to jointing (fr P2),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P4FR1,Duration of phase end spike growth to anthesis (fr P4),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P4FR2,Duration of phase anthesis start to anthesis end (fr P4),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PARU2,"PAR conversion to dm ratio,after last leaf",g/MJ,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PARUE,"PAR conversion to dm ratio,before last leaf stage",g/MJ,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHFn,Factor by which PHINTS is multiplied -> PHINT for phase,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHLn,Leaf # produced during phyllochron phase,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PPFPE,"Daylength factor,pre emergence (#,0-1)",#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDGS,"Root depth growth rate,early phase",cm/standard d,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RS%S,Reserves part of assimilates going to stem,%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TDFAC,Tiller death factor (%/st.day when tiller wt 2xstandard wt),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TDPHE,Tiller death ending stage (GrowthStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TDPHS,Tiller death start stage (GrowthStage),,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TDSF,"Tiller death stress factor (#;0,2->no,full stress acceleration)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TIFAC,Tiller initiation (rate) factor (fr of phyllochron based),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TIL#S,Tiller production starts,leaf #,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TIPHE,Tillering phase end stage (GrowthStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TKFH,Temperature at which killed when fully hardened,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+VEFF,Vernalization effect (Rate reduction when unvernalized (fr),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WFGU,"Water stress factor,growth,upper (fr)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WFPU,"Water stress factor,photosynthesis,upper (fr)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBASE,base temperature below which no development occurs,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TOPT,temperature at which maximum development rate occurs during vegetative stages,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ROPT,temperature at which maximum development rate occurs for reproductive stages,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTOP,temperature above which no development occurs,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P2O,Daylength below which daylength does not affect development rate,hours,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GDDE,Growing degree days per cm seed depth required for emergence,GDD/cm,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DSGFT,GDD from End Ear Growth to Start Grain Filling period,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RUE1,Pre-anthesis radiation use efficiency,g plant dry matter/MJ PAR,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RUE2,Post-anthesis radiation use efficiency,g plant dry matter/MJ PAR,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+KVAL1,Pre-anthesis canopy light extinction coefficient for daily PAR,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+KVAL2,Post-anthesis canopy light extinction coefficient for daily PAR,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLAP2,ratio of leaf area to mass at end of leaf growth,cm2/g,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TC1P1,for calculating tc1: tiller number from emerg. to term. spik.(=stem elongation),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TC1P2,tc1 = tc1_p1 + tc1_p2 *cumph_nw(istage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DTNP1,for calculating dtiln: tiller number after term. spik.(=stem elongation),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLGP1,for calculating plag: potential leaf growth.  plag= plag_p1*cumph(istage)**plag_p2,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLGP2,for calculating plag: potential leaf growth.  plag= plag_p1*cumph(istage)**plag_p2,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P2AF,threshold AD in a layer becoming effective on root growth,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P3AF,length of downwards root not effected under aeration deficit,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P4AF,days to be accumulated before aeration deficit effects root growth,days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P5AF,power term at af1,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+P6AF,days to be accumulated before aeration deficit effects crop growth,days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ADLAI,threshold aeration deficit (AF2) affecting LAI        (set to 1.0 for no stress run),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ADTIL,threshold aeration deficit (AF2) effecting tillering  (set to 1.0 for no stress run),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ADPHO,threshold aeration deficit (AF2) effecting photosyn.  (set to 1.0 for no stress run),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+STEMN,"0=original C to grain translocation, >0 to 1.0 sets % of C of stem to be transloc. to grain",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXNUP,max N uptake per day,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXNCR,"0.035=20%,   .04=23% protein, max n:c ratio of grain growth",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WFNU,power term for water effect on N supply,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PNUPR,potential uptake rate,mg/meter/day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EXNO3,exponent for NO3 supply factor,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MNNO3, minimum for NO3 supply factor,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EXNH4,exponent for NH4 supply factor,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MNNH4,minimum for NH4 supply factor,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+INGWT,initial grain weight,mg/100 grain,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+INGNC,"% protein, initial grain N conc",%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FREAR,"fraction between end ear and begin grainfilling, setting min stem weight for remobilisation",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MNNCR,"% protein, min n:c ratio of grain growth",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GPPSS,"gpp_start_stage - Grain per plant: 2=stem elong., 3=end leaf stage at which to start accumo. stem for gpp calc.",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GPPES,gpp_end_stage - Start grainfilling stage at which to end accumulation stem for Grain per plant calc,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MXGWT,maximum kernal weight  [100 = no effect],NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MNRTN,min root n due to grain n initialisation [0 = off],NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NOMOB,fraction of accum stem weight that is not mobile [0 = original],NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RTDP1,"sw effect, 0 = old version",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RTDP2,"crop stress effect, 0 = old version",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FOZ1,"ozone effect rate on photosynthesis: 0.06 = ozone tolerant, 0.10 = intermediate, 0.50 = ozone sensitive",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FOZ2,"ozone effect initialization on photosynthesis (dependent on FOZ1): 1.015 = ozone tolerant, 1.025 = intermediate, 1.125 = ozone sensitive",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SFOZ1,"ozone effect rate on leaf senescence: 0.08 = ozone tolerant, 0.25 = intermediate, 0.40 = ozone sensitive",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SFOZ2,"ozone effect initialization on leaf senescence (dependent on SFOZ1): 0.80 = ozone tolerant, 0.38 = intermediate, 0.00 = ozone sensitive",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TSEN,Critical temperature below which leaf damage occurs (default 6°C),oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CDAY,cold days parameter (default 15.0),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ECONAME,"Name of the ecotype, which is referenced from *.CUL file",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MG,"Maturity group number for this ecotype, such as maturity group in soybean",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TM,Indicator of temperature adaptation,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+THVAR,Minimum rate of reproductive development under short days and optimal temperature,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PL-EM,Time between planting and emergence (V0),thermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EM-V1,Time required from emergence to first true leaf (V1),thermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+V1-JU,Time required from first true leaf to end of juvenile phase,thermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+JU-R0,"Time required for floral induction, equal to the minimum number of days for floral induction under optimal temperature and daylengths",thermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PM06,Proportion of time between first flower and first pod for first peg (peanut only),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PM09,Proportion of time between first seed and physiological maturity that the last seed can be formed,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LNGSH,Time required for growth of individual shells,photothermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+R7-R8,Time between physiological (R7) and harvest maturity (R8),days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FL-VS,Time from first flower to last leaf on main stem,photothermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TRIFOL,Rate of appearance of leaves on the mainstem,leaves per thermal day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TRIFL,Rate of appearance of leaves on the mainstem,leaves per thermal day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RWIDTH,Relative width of this ecotype in comparison to the standard width per node (YVSWH) defined in the species file (*.SPE),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RHGHT,Relative height of this ecotype in comparison to the standard height per node (YVSHT) defined in the species file (*.SPE),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SIZELF,"The size of a normal upper node leaf (nodes 8 - 10) of variety I, used to adjust leaf area expansion during sink-limited phase of vegetative growth",cm2/leaf,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+R1PPO,Increase in daylength sensitivity after R1,h,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+OPTBI,Minimum daily temperature above which there is no effect on slowing normal development toward flowering,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SLOBI,Slope of relationship reducing progress toward flowering if TMIN for the day is less than OPTBI,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XMAGE,Photothermal time required for Multi-harvest,photothermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DJTI,Minimum days from end of juvenile stage to tassel initiation if the cultivar is not photoperiod sensitive,days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XFPHT,Time required to reach maximum partitioning to pod/fruit,photothermal days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XFINT,Initial partitioning to pod/fruit during early pod/fruit growth,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+STPC,Partitioning to stem growth as a fraction of potential leaf growth,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RTPC,Partitioning to root growth as a fraction of available carbohydrates,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TILFC,Tillering factor (0.0 no tillering; 1.0 full tillering),#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PLAM,Plant leaf area maximun (Initial leaf area),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NS_LF_TIL,Number of dry leaves to consider on canopy light transmission,#/tiller,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+N_LF_MAX_ILA,Number of leaves when leaves appear at it maximum initial area,#/tiller,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TB0PHO,Minimum base temperature for photosynthesis,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TB1PHO,Optimum temperature for photosynthesis,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TB2PHO,Optimum temperature for photosynthesis,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBFPHO,Maximum base temperature for photosynhesis,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBPER,Minimum base temperature for plant expansion,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBMAX_PER,Maximum base temperature for plant expansion,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LTTHRESHOLD,Threshold of light transmited through canopy to start tiller senescence (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FDEADLF,Fraction of dryied leaves blade area considered on canopy light transmission (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDM,Maximum root depth,cm,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DPERCOEFF,Maximum plant expansion rate,mm/h,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RWUEP1,Water Stress Sensitivity of Photosynthesis,dml,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RWUEP2,Water Stress Sensitivity of Plant Expansion,dml,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MAX_WS_PHO,Supply/Demand ratio where water stress effect is maximum for photosynthesis (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MID_WS_PHO,Supply/Demand ratio where half of maximum water stress effect (0.5) for photosynthesis occurs (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MIN_WS_PHO,Supply/Demand ratio where water stress effect on photosynthesis onsets (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MAX_WS_EXP,Supply/Demand ratio where water stress effect is maximum for expansion (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MID_WS_EXP,Supply/Demand ratio where half of maximum water stress effect (0.5) for expansionoccurs (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+T_MIN_WS_EXP,Supply/Demand ratio where water stress effect on expansion onsets (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FRAC_SUC_BG,Sucrose fraction of total sugars of below ground internode (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+FRAC_HEX_BG,Hexose fraction of total sugars of below ground internode (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+INIT_PD_RAT,Initial plant depth for ratooning cane,cm,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_TB_INI,Minimum base temperature for internode structural partitioning,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_TO1,Optimum temperature for internode structural partitioning,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_TO2,Optimum temperature for internode structural partitioning,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_TB_END,Maximum base temperature for internode structural partioning,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_MAX,Maximum biomass partitioning fraction to structural parts of internodes (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_MIN,Minimum biomass partitioning fraction to structural parts of internodes (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_TB,Thermal time for onset of biomass partitioning to internode structural parts,oC-days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_TM,Thermal time where biomass partitioning to internodes structural parts is at maximum,oC-days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_TE,Thermal time for biomass partitioning to internodes structural parts cessation,oC-days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_PF_D,Shape coefficient for biomass partitioning to internodes strucutural parts,dml,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_T_RED,Maximum reduction of internode structural partitioning due to temperature (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+IT_STR_W_RED,Maximum reduction of internode structural partitioning due to water stress (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MAX_PER_IT,Maximum expansion rate of internodes,mm/day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DSWAT_DDWS,Water weight increment per unit of structural biomass gain,d[H2O]/d[STR],GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DSWAT_DSUC,Water weight decrease per unit of sugars biomass gain,d[H2O]/d[SUG],GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+HEX_MIN,Minimum hexoses fraction of total sugars in a growing internode,g/g,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SUC_ACC_INI,Internode total sugars concentration where sucrose accumulation onsets (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DSUC_FRAC_TS,Sucrose weight increment per unit of total sugars increment in internodes,d[SUC]/d[TSUG],GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TT_CHUMAT_LT,Thermal time required after peak of population for tillering stabilization,oC-days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+KCAN_ECO,Superseeds KCAN from .SPE file,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SMAX,Maximum number of stalks a variety can yield per stubble or plant,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CAB,"Number of leaves in spindle cluster at top of stalk (""cabbage"").  In CASUPRO, stalk dry matter begins to accumulate only after CAB leaves have emerged",#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CanLmtFac,Proportion of stalk leaf area moved up each day to keep de-populated light interception zones full,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LfShdFac,Proportion of a stalk's new leaf area that shades (displaces to the next lower zone) leaves on other stalks,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+MINSHD,Minimum value allowed for FRSHAV (Average of daylight fraction of ground area in plant shadow) during early growth.(0.01-0.20),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+StkSenFrac,"Threshold maintenance respiration deficit to stalk dry weight ratio (TotalDEF(Stalk) / STKWT(DAS-1,Stalk) at which stalk death occurs",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SENDAY,Maximum fraction of existing leaf weight which can be senesced on a single day as a function of severe water stress 4 days earlier,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XDAY(6),Days after planting corresponding to observed YSLA,days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YSLA(6),SLA measured at XDAY days after planting,cm2/g,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XLI(6),Light Interception fraction that controls tillering rate,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YVTR(6),Tillering Rate (Stalk / oC-day) (Bezuidenhout et al 2003),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XVSHT(10),"Node (v-stage or VS) number, reference stalk",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YVSHT(10),"Mature internode length, reference stalk (cm)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ZVSDI(10),"Mature internode diameter, reference stalk (cm)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YVSWH(10),"Canopy width per node, reference stalk (cm)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XLFNUM(6),Leaf number for calculation of potential leaf area,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YLFSZ(6),Area corresponding to leaf number for primary stalk,cm2,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XStkNum(8),Tiller Number for calculation of potential leaf area,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YLfFac(8),Factor for calculating tiller leaf sizes based on primary or other reference leaf sizes,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XFRSU(4),Node # for sugar deposition TABEX function,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YFRSU(4),"Max sucrose accumulation as proportion of stalk dry weight, per stalk per day according to node #.",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XSENMX(4),Leaf number determining SENMAX,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SENMAX(4),Maximum proportion of total leaf weight as a function of LeafNum (XSENMX(I)) which can be senesced due to water stress,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XShdMX(4),Leaf number determining ShdMAX,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+ShdMAX(4),Maximum proportion of total leaf weight as a function of LeafNum (XShdMX(I)) which can be senesced due to low-light stress.,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XSTAGE(4),Leaf number determining SENPOR,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SENPOR(4),Proportion of leaf weight grown which will have been senesced by a given LeafNun (XSTAGE(I)) if no water stress has occurred prior to this LeafNum,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+XTMIN(4),Minimum temperature,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+YLOSS(4),Proportion of live leaf weight senesced each day that minimum temp reaches corresponding XTMIN value,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DELTTMAX,Max. change in sucrose content per unit change in stalk mass in the unripenened section,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SWDF2AMP,Sucrose partitioning sensitivity to water stress parameter,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CS_CNREDUC,Canopy reduction due to water stress,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+CS_CNPERIOD,Canopy water stress period,days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+Tthalfa,Half canopy thermal time adjustment for row width ,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DPERdT,Change in plant extension rate (mm/h) per unit change in temperature,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EXTCFN,Maximum canopy light extinction coefficient,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+EXTCFST,Minimum canopy light extinction coefficient ,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LFNMXEXT,Leaf number (including dead leaves still attached) at which maximum light extinction occurs,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AREAMX_CF(1),Cultivar parameter for quadratic equation defining maximum leaf area,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AREAMX_CF(2),Cultivar parameter for quadratic equation defining maximum leaf area,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+AREAMX_CF(3),Cultivar parameter for quadratic equation defining maximum leaf area,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WIDCOR,Parameter affecting the width of leaves,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WMAX_CF(1),Cultivar parameter for quadratic equation defining leaf width,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WMAX_CF(2),Cultivar parameter for quadratic equation defining leaf width,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WMAX_CF(3),Cultivar parameter for quadratic equation defining leaf width,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+POPCF(1),"Stalk population coefficient, in ideal conditions (no stresses), as function of th.time",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+POPCF(2),"Stalk population coefficient, in ideal conditions (no stresses), as function of th.time",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+POPDECAY,Tiller senescence rate expressed as the fraction of tillers above the future mature tiller population (Varies from 3.0 to 5.0),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTBASEEM,Base temperature for emergence,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTBASELFEX,Base temperature for leaf phenology,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TTBASEPOP,Base temperature for stalk phenology,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBASEPER,Base temperature for plant extension,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LG_AMRANGE,Range in aerial mass from the start to the end of lodging,t/ha,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LG_GP_REDUC,"Reduction in gross photosynthesis due to full lodging, as a fraction",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LG_FI_REDUC,Reduction in fractional interception by the canopy due to full lodging ,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PEAR,Parameter controlling ear C partitioning during ear growth,NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PSTM,"Parameter controlling stem C partitioning during ISTAGES 3, 4 (0-1) Higher PSTM, more DM into stem, less into leaves",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDRMT,Relative dormancy sensitivity of this cultivar to daylength - partitioning (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDRMG,Relative dormancy sensitivity of this cultivar to daylength - photosynthesis (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDRMM,Relative dormancy sensitivity of this cultivar to daylength - mobilization (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RCHDP,Relative cold hardening potential (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PGERM,Germination duration,Tu,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+WFSU,Water stress factor for leaf senescence (0-1),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SRN%S,Storage root standard N concentration,% dm,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TBLSZ,Base temperature for leaf development,oC,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RSUSE,Reserves remobilization fraction (storage roots for top growth),fr,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RLWR,Root length/weight ratio,m/g,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDGS," Root depth growth rate,standard",cm/standard day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHTV,"Photosynthesis and transpiration,threshold VPD for reduction in rate (kPa) (hourly effect, MEPHO = V)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+PHSV,"Photosynthesis and transpiration,sensitivity to VPD (fraction/kPa) (hourly effect, MEPHO = V)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SFMXL,Leaf number above which stem fraction at maximum,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SFMNL,Leaf number below which stem fraction at minimum,#,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SWFRN,"Stem fraction,minimum",fr,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SWFRX,"Stem fraction,maximum",fr,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+DUSRI,Degree days at which storage root number determined,oC-days,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SSPHS,Stem senescence (final) phase start stage (GrowthStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+SSPHE,Stem senescence (final) phase end stage (GrowthStage),NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RTNUP,NO3 uptake/root length,mg N/cm.day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RS%A,Reserves concentration in tops at start of anthesis (%),%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+RDGS,"Root depth growth rate,standard",cm/standard day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NUPWF,"Soil water effect on N uptake adjustment factor (0-2;1.0=no effect,1=standard)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+NUPNF,"NO3 uptake vs conc exponent adjustment factor (0-2;0=no uptake,1=standard)",NA,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+LSENI,"Leaf senescence,intermediate phases",%/standard day,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GWTAT,Grain weight adjustment threshold,kg/ha canopy weight at anthesis,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GWTAF,Grain weight adjustment factor,fr/10000kg/ha canopy wt>threshold,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+GM%H,Grain moisture percentage at harvest,%,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+G#RF,Grain number radiation factor,fr increase/(MJ/m2.d) radiation in phase 5,GENOTYPE,*.ECO,ECOTYPE COEFFICIENTS FILE,DSSAT v4.8
+TODO,TODO,TODO,SPECIES,*.SPE,SPECIES COEFFICIENTS,DSSAT v4.8

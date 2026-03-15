@@ -5,3 +5,9 @@ description = "A Neurosymbolic-like framework binding the DSSAT crop model and L
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
+
+[tool.uv.workspace]
+members = [
+    "packages/dssatsim",
+    "services/weather-api",
+]
