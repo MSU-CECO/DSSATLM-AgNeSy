@@ -156,6 +156,64 @@ class DSSATLMPipeline:
 
         return self._logs["outputs"]
 
+    def answer_query_interpret_only(
+        self,
+        farmer_input_query: str,
+        cached_sim_outputs: dict,
+    ) -> dict:
+        """
+        Re-run only Step 3 (interpreter) using cached simulation outputs.
+
+        Used by the backend's /api/query/reinterpret endpoint when the user
+        changes their question but not the simulation inputs (location, crop,
+        planting date, applications).  Parsing and simulation are skipped
+        entirely, saving ~30-60 seconds of DSSAT runtime.
+
+        Args:
+            farmer_input_query: The new question text from the farmer.
+                                 Treated as a single question statement.
+            cached_sim_outputs: The filtered simulation outputs dict returned
+                                 by a previous answer_query() call and stored
+                                 in the backend's sim_cache.
+
+        Returns:
+            Same shape as answer_query(): dict keyed 'question_1', ...
+        """
+        self._reset_logs()
+
+        self._logs["dssatlm_simulator_response"] = cached_sim_outputs
+        self._logs["simulation_is_possible"] = True
+        self._logs["simulation_is_successful"] = True
+
+        try:
+            question_statements = [farmer_input_query]
+
+            answers = self._run_interpreter(
+                question_statements=question_statements,
+                sim_outputs=cached_sim_outputs,
+            )
+
+            final_outputs = self._enrich_with_expert_answers(cached_sim_outputs, answers)
+            self._logs["outputs"] = final_outputs
+
+        except _PipelineStepError as e:
+            print(f"Pipeline stopped at: {e}")
+            self._logs["pipeline_ran_successfully"] = False
+
+        except Exception as e:
+            self._logs["pipeline_ran_successfully"] = False
+            self._logs["execution_errors"]["unexpected"] += (
+                f"\nAt {get_current_time()}: Unexpected error: {e}"
+            )
+            print(f"Unexpected pipeline error: {e}")
+
+        finally:
+            self._save_logs()
+            if self._wandb_enabled:
+                self._close_wandb()
+
+        return self._logs["outputs"]
+
     # ------------------------------------------------------------------
     # Step 1 -- Parser
     # ------------------------------------------------------------------
@@ -329,7 +387,7 @@ class DSSATLMPipeline:
         }
 
     def _save_logs(self):
-        fname = f"dssatlm_logs_{get_current_time()}".replace(" ", "_").replace(":", "-")
+        fname = f"dssatlm_logs_{get_current_time()}_{uuid.uuid4().hex[:8]}".replace(" ", "_").replace(":", "-")
         fpath = os.path.join(TMP_DIR, f"{fname}.json")
         dict_to_json_file(self._logs, fpath)
 
@@ -408,4 +466,3 @@ class DSSATLMPipeline:
 class _PipelineStepError(Exception):
     """Raised internally to halt the pipeline at a specific step."""
     pass
-

@@ -11,4 +11,5 @@ members = [
     "packages/dssatsim",
     "packages/dssatlm",
     "services/weather-api",
+    "services/backend",
 ]
