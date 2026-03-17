@@ -37,6 +37,7 @@ Server starts at `http://localhost:8002`. Interactive docs at `http://localhost:
 | `WANDB_API_KEY` | No | WandB key for experiment logging. If unset, logging is skipped |
 | `EVAL_KEY` | Yes (eval mode) | Secret passphrase for the `/api/eval/query` endpoint |
 | `CORS_ORIGINS` | No | Comma-separated allowed origins. Defaults to `*` (dev only) |
+| `DEBUG` | No | Set to `true` to include full tracebacks in SSE error events. Never set in production. |
 
 Create a `.env` file in `services/backend/`:
 

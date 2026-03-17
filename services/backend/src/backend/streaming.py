@@ -12,6 +12,7 @@ from collections.abc import AsyncGenerator
 from typing import Any
 
 from .pipeline_cache import get_pipeline
+from . import sim_cache
 from .schemas import (
     ErrorEvent,
     ParsedEvent,
@@ -48,12 +49,17 @@ def _stage(model: str, stage: str, status: str) -> str:
     return _sse(StageEvent(model=model, stage=stage, status=status).model_dump())
 
 
+import os as _os
+
+_DEBUG = _os.environ.get("DEBUG", "").lower() in ("1", "true", "yes")
+
+
 def _error_sse(exc: Exception, model: str | None = None) -> str:
     return _sse(
         ErrorEvent(
             model=model,
             friendly=_friendly_message(exc),
-            detail=traceback.format_exc(),
+            detail=traceback.format_exc() if _DEBUG else None,
         ).model_dump()
     )
 
@@ -61,8 +67,6 @@ def _error_sse(exc: Exception, model: str | None = None) -> str:
 def _extract_parsed_fields(logs: dict) -> dict:
     """
     Pull structured input fields from dssatlm_parser_response in logs.
-    The exact keys depend on ParserModule's output signature — we extract
-    what we know and pass the rest through as 'raw' for the frontend.
     """
     parser_resp = logs.get("dssatlm_parser_response", {})
     irrigation_raw = parser_resp.get("irrigation_events") or []
@@ -87,7 +91,6 @@ def _extract_parsed_fields(logs: dict) -> dict:
 def _extract_sim_fields(logs: dict) -> dict:
     """Pull yield and harvest date from dssatlm_simulator_response."""
     sim = logs.get("dssatlm_simulator_response", {})
-    # By design, the real dssatsim response uses long descriptive keys in nested sections (maybe I'll change/improve on this at some point)
     dry_weight = sim.get("Dry weight, yield and yield components", {})
     dates = sim.get("Dates", {})
     yield_kg_ha = (
@@ -149,30 +152,41 @@ def _get_wandb_run_url(pipeline) -> str | None:
         return None
 
 
-def _run_pipeline(
-    pipeline,
-    farmer_query: str,
-    openrouter_api_key: str,
-    wandb_api_key: str | None,
-) -> dict:
-    """
-    Run pipeline.answer_query() in a thread executor — must not use async.
-    API keys are already baked into the pipeline's dspy.LM objects at
-    construction time, so no env injection is needed here.
-    """
-    return pipeline.answer_query(farmer_query)
-
-
 async def stream_pro(
     farmer_query: str,
     openrouter_api_key: str,
     wandb_api_key: str | None,
     model: str,
     wandb_project: str | None,
+    # Simulation input fields — used to compute sim_hash for caching
+    latitude: float | None = None,
+    longitude: float | None = None,
+    crop: str | None = None,
+    variety: str | None = None,
+    planting_date: str | None = None,
+    irrigation_events: list | None = None,
+    nitrogen_events: list | None = None,
+    phosphorus_events: list | None = None,
+    potassium_events: list | None = None,
 ) -> AsyncGenerator[str, None]:
-    """SSE generator for Pro mode. singkle model."""
+    """SSE generator for Pro mode — single model, full pipeline run."""
 
     loop = asyncio.get_event_loop()
+
+    # Compute sim_hash upfront so we can attach it to the result event
+    computed_hash: str | None = None
+    if all(v is not None for v in [latitude, longitude, crop, variety, planting_date]):
+        computed_hash = sim_cache.compute_sim_hash(
+            latitude=latitude,
+            longitude=longitude,
+            crop=crop,
+            variety=variety,
+            planting_date=planting_date,
+            irrigation_events=irrigation_events or [],
+            nitrogen_events=nitrogen_events or [],
+            phosphorus_events=phosphorus_events or [],
+            potassium_events=potassium_events or [],
+        )
 
     try:
         pipeline = get_pipeline(openrouter_api_key, wandb_api_key, model, wandb_project)
@@ -181,8 +195,6 @@ async def stream_pro(
         yield _error_sse(exc, model)
         return
 
-    # All three stages start simultaneously. the pipeline runs them sequentially
-    # internally but we have no per-step hook to emit events between them, at this point.
     yield _stage(model, "parsing", "start")
     yield _stage(model, "simulating", "start")
     yield _stage(model, "interpreting", "start")
@@ -211,7 +223,10 @@ async def stream_pro(
         yield _error_sse(exc, model)
         return
 
-    # Emit done events with extracted data interleaved
+    # Store outputs in sim_cache so /reinterpret can retrieve them later
+    if computed_hash is not None:
+        sim_cache.store(computed_hash, outputs, logs)
+
     yield _stage(model, "parsing", "done")
     yield _sse(ParsedEvent(model=model, **_extract_parsed_fields(logs)).model_dump())
     yield _stage(model, "simulating", "done")
@@ -228,7 +243,91 @@ async def stream_pro(
             harvest_date=sim_fields["harvest_date"],
             wandb_run_id=_get_wandb_run_id(pipeline),
             wandb_run_url=_get_wandb_run_url(pipeline),
-            raw_dssat_output=None, 
+            raw_dssat_output=None,
+            sim_hash=computed_hash,
+        ).model_dump()
+    )
+
+
+async def stream_pro_reinterpret(
+    farmer_query: str,
+    sim_hash: str,
+    openrouter_api_key: str,
+    wandb_api_key: str | None,
+    model: str,
+    wandb_project: str | None,
+) -> AsyncGenerator[str, None]:
+    """
+    SSE generator for the /reinterpret endpoint.
+
+    Skips parsing and simulation entirely — looks up cached outputs by
+    sim_hash and re-runs only the interpreter step with the new question.
+    Emits only: interpreting/start, interpreting/done, result (or error).
+    """
+    loop = asyncio.get_event_loop()
+
+    # Look up cached simulation outputs
+    cached = sim_cache.get(sim_hash)
+    if cached is None:
+        logger.warning("Reinterpret requested but hash not in cache: %s", sim_hash[:12])
+        try:
+            raise KeyError(f"Simulation cache miss for hash {sim_hash[:12]}…")
+        except KeyError as exc:
+            yield _sse(
+                ErrorEvent(
+                    model=model,
+                    code="cache_miss",
+                    friendly=_friendly_message(exc),
+                    detail=traceback.format_exc() if _DEBUG else None,
+                ).model_dump()
+            )
+        return
+
+    cached_logs: dict = cached["logs"]
+    
+    # Pass the DSSAT simulator response (not the interpreter outputs) so that
+    # answer_query_interpret_only feeds real simulation data into InterpreterModule.
+    cached_sim_outputs: dict = cached_logs.get("dssatlm_simulator_response", {})
+
+    try:
+        pipeline = get_pipeline(openrouter_api_key, wandb_api_key, model, wandb_project)
+    except Exception as exc:
+        logger.exception("Failed to instantiate pipeline for reinterpret")
+        yield _error_sse(exc, model)
+        return
+
+    yield _stage(model, "interpreting", "start")
+
+    try:
+        # answer_query_interpret_only takes the cached DSSAT sim outputs and
+        # re-runs only the DSPy InterpreterModule with the new question text.
+        outputs: dict = await loop.run_in_executor(
+            None,
+            pipeline.answer_query_interpret_only,
+            farmer_query,
+            cached_sim_outputs,
+        )
+    except Exception as exc:
+        logger.exception("Reinterpret pipeline execution failed")
+        yield _stage(model, "interpreting", "done")
+        yield _error_sse(exc, model)
+        return
+
+    yield _stage(model, "interpreting", "done")
+
+    sim_fields = _extract_sim_fields(cached_logs)
+
+    yield _sse(
+        ResultEvent(
+            model=model,
+            answer=_build_answer_text(outputs),
+            answers=_build_answers_list(outputs),
+            yield_kg_ha=sim_fields["yield_kg_ha"],
+            harvest_date=sim_fields["harvest_date"],
+            wandb_run_id=_get_wandb_run_id(pipeline),
+            wandb_run_url=_get_wandb_run_url(pipeline),
+            raw_dssat_output=None,
+            sim_hash=sim_hash,  
         ).model_dump()
     )
 
@@ -278,7 +377,6 @@ async def stream_eval(
 
             sim_fields = _extract_sim_fields(logs)
 
-            # Eval mode: surface expert_like_answer from first question as raw DSSAT output
             raw_dssat = None
             if outputs:
                 first = next(iter(outputs.values()), {})
@@ -294,6 +392,7 @@ async def stream_eval(
                     wandb_run_id=_get_wandb_run_id(pipeline),
                     wandb_run_url=_get_wandb_run_url(pipeline),
                     raw_dssat_output=raw_dssat,
+                    sim_hash=None,  # not relevant in eval mode
                 ).model_dump()
             ))
 
@@ -313,4 +412,4 @@ async def stream_eval(
             yield item
 
     await asyncio.gather(*tasks, return_exceptions=True)
-
+    

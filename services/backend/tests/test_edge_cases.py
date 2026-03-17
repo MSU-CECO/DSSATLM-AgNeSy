@@ -306,3 +306,48 @@ def test_restore_env_cleans_up():
     _restore_env(prev)
     assert os.environ.get("OPENROUTER_API_KEY") == original_or
 
+
+
+# ---------------------------------------------------------------------------
+# /api/query/reinterpret — edge cases
+# ---------------------------------------------------------------------------
+
+@patch("backend.pipeline_cache.DSSATLMPipeline")
+def test_reinterpret_uses_interpret_only_not_full_pipeline(mock_cls, client):
+    """
+    Verify the reinterpret endpoint delegates to answer_query_interpret_only
+    and never touches answer_query.
+    """
+    from backend import sim_cache
+    from backend.sim_cache import compute_sim_hash
+    from tests.conftest import DUMMY_OR_KEY
+    from tests.test_pro_query import MOCK_LOGS, MOCK_OUTPUTS
+
+    sim_cache.clear_cache()
+
+    sim_hash = compute_sim_hash(
+        latitude=42.263, longitude=-85.648, crop="maize",
+        variety="MZ GREAT LAKES 582 KBS", planting_date="2023-05-01",
+        irrigation_events=[], nitrogen_events=[],
+        phosphorus_events=[], potassium_events=[],
+    )
+    sim_cache.store(sim_hash, MOCK_OUTPUTS, MOCK_LOGS)
+
+    mock_pipeline = _make_mock_pipeline()
+    mock_pipeline.answer_query_interpret_only = MagicMock(return_value=MOCK_OUTPUTS)
+    mock_cls.return_value = mock_pipeline
+
+    resp = client.get(
+        "/api/query/reinterpret",
+        params={
+            "query": "How much water did my crop use?",
+            "sim_hash": sim_hash,
+            "model": "gpt-4o-mini",
+            "openrouter_api_key": DUMMY_OR_KEY,
+        },
+    )
+
+    assert resp.status_code == 200
+    mock_pipeline.answer_query.assert_not_called()
+    mock_pipeline.answer_query_interpret_only.assert_called_once()
+    

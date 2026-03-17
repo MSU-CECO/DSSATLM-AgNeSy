@@ -415,3 +415,142 @@ class TestSimWasSuccessful:
         incomplete = {k: v for k, v in FAKE_SIM_OUTPUTS.items() if k != "Dates"}
         assert pipeline._sim_was_successful(incomplete) is False
 
+
+# ---------------------------------------------------------------------------
+# Tests -- answer_query_interpret_only
+# ---------------------------------------------------------------------------
+
+class TestAnswerQueryInterpretOnly:
+    """
+    Tests for the reinterpret-only path. Parsing and simulation are skipped; 
+    Only the interpreter step runs.
+    """
+
+    def test_returns_outputs_dict(self, monkeypatch, tmp_path):
+        """Happy path: cached sim outputs + new question -> answer dict."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        outputs = pipeline.answer_query_interpret_only(
+            farmer_input_query="What would be my crop yield at maturity?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        assert isinstance(outputs, dict)
+        assert "question_1" in outputs
+
+    def test_does_not_call_parser(self, monkeypatch, tmp_path):
+        """Parser must never be called in the reinterpret path."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.parser = MagicMock(side_effect=AssertionError("Parser must not be called"))
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        # Should not raise
+        pipeline.answer_query_interpret_only(
+            farmer_input_query="What is my yield?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+    def test_does_not_call_dssatsim(self, monkeypatch, tmp_path):
+        """DSSAT simulator must never be called in the reinterpret path."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        with patch("dssatlm.pipeline.dssatsim_run") as mock_run:
+            pipeline.answer_query_interpret_only(
+                farmer_input_query="What is my yield?",
+                cached_sim_outputs=FAKE_SIM_OUTPUTS,
+            )
+            mock_run.exec.assert_not_called()
+            mock_run.is_simulation_possible.assert_not_called()
+
+    def test_simulator_logs_hydrated_from_cache(self, monkeypatch, tmp_path):
+        """
+        get_logs()['dssatlm_simulator_response'] must be populated from
+        cached_sim_outputs so streaming.py/_extract_sim_fields() works.
+        """
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        pipeline.answer_query_interpret_only(
+            farmer_input_query="When can I harvest?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        logs = pipeline.get_logs()
+        assert logs["dssatlm_simulator_response"] is FAKE_SIM_OUTPUTS
+        assert logs["simulation_is_possible"] is True
+        assert logs["simulation_is_successful"] is True
+
+    def test_pipeline_ran_successfully_true_on_success(self, monkeypatch, tmp_path):
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        pipeline.answer_query_interpret_only(
+            farmer_input_query="What is my yield?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        assert pipeline.get_logs()["pipeline_ran_successfully"] is True
+
+    def test_pipeline_ran_successfully_false_on_interpreter_failure(self, monkeypatch, tmp_path):
+        """If the interpreter raises, pipeline_ran_successfully must be False."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(side_effect=RuntimeError("LM failure"))
+
+        outputs = pipeline.answer_query_interpret_only(
+            farmer_input_query="What is my yield?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        assert outputs == {}
+        assert pipeline.get_logs()["pipeline_ran_successfully"] is False
+
+    def test_expert_answer_attached(self, monkeypatch, tmp_path):
+        """expert_like_answer must be present on every output entry."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(return_value=FAKE_INTERPRETER_ANSWERS)
+
+        outputs = pipeline.answer_query_interpret_only(
+            farmer_input_query="What is my yield?",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        for q_key in outputs:
+            assert "expert_like_answer" in outputs[q_key]
+
+    def test_question_passed_as_single_statement(self, monkeypatch, tmp_path):
+        """
+        The interpreter must receive the raw query as a single-element list
+        of question_statements (i.e., not wrapped in a parser response dict).
+        """
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+
+        captured = {}
+        def capture_call(**kwargs):
+            captured.update(kwargs)
+            return FAKE_INTERPRETER_ANSWERS
+
+        pipeline.interpreter = MagicMock(side_effect=capture_call)
+
+        query = "How much water did my crop use?"
+        pipeline.answer_query_interpret_only(
+            farmer_input_query=query,
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        assert captured.get("question_statements") == [query]
+
+    def test_returns_empty_dict_and_logs_on_failure(self, monkeypatch, tmp_path):
+        """Return value must be {} (not raise) when interpreter fails."""
+        pipeline = make_mocked_pipeline(monkeypatch, tmp_path)
+        pipeline.interpreter = MagicMock(side_effect=RuntimeError("boom"))
+
+        result = pipeline.answer_query_interpret_only(
+            farmer_input_query="anything",
+            cached_sim_outputs=FAKE_SIM_OUTPUTS,
+        )
+
+        assert result == {}
+        logs = pipeline.get_logs()
+        assert logs["pipeline_ran_successfully"] is False

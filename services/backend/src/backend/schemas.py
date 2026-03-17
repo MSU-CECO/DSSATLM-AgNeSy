@@ -26,7 +26,7 @@ class ProQueryRequest(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# "Eval mode": multi-model query (like in the paper, to help evalutors assess each models' outputs)
+# "Eval mode": multi-model query (like in the paper, to help evaluators assess each models' outputs)
 # ---------------------------------------------------------------------------
 
 class EvalQueryRequest(BaseModel):
@@ -67,7 +67,7 @@ class ParsedEvent(BaseModel):
 class QuestionAnswer(BaseModel):
     key: str
     question: str
-    matched_question: str   # quite note: this is coerced to str in streaming.py. so pipeline'll return bool when no match
+    matched_question: str   # coerced to str in streaming.py
     answer_for_farmer: str
     expert_like_answer: str
 
@@ -82,13 +82,15 @@ class ResultEvent(BaseModel):
     wandb_run_id: str | None = None
     wandb_run_url: str | None = None
     raw_dssat_output: str | None = Field(None, description="Eval mode only; expert_like_answer")
+    sim_hash: str | None = Field(None, description="SHA-256 of simulation inputs — returned on full runs so the frontend can request /reinterpret on question-only changes")
 
 
 class ErrorEvent(BaseModel):
     event: str = "error"
     model: str | None = None
+    code: str | None = Field(None, description="Machine-readable error code, e.g. 'cache_miss'. Always present, safe to expose.")
     friendly: str
-    detail: str | None = None   # raw traceback; always sent, frontend should put it in collapsible
+    detail: str | None = Field(None, description="Full traceback — only populated when DEBUG=true")
 
 
 # ---------------------------------------------------------------------------
@@ -98,4 +100,3 @@ class ErrorEvent(BaseModel):
 class HealthResponse(BaseModel):
     status: str = "ok"
     version: str = "0.1.0"
-    
