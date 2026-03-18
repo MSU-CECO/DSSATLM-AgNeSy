@@ -7,3 +7,7 @@ Kpodo, J., Nejadhashemi, A. P., Kordjamshidi, P., Eeswaran, R., and Dong, Y. "Cl
 
 ```
 
+## Acknowledgments
+
+* [DSSAT Team](https://github.com/DSSAT/dssat-csm-os)
+* [Py_DSSATTools](https://github.com/daquinterop/Py_DSSATTools)
