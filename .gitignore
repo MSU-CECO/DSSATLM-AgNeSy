@@ -3,3 +3,5 @@ _brouillon/
 quick_test.py
 
 frontend/
+
+services/nginx
