@@ -85,7 +85,7 @@ MOCK_SOL_RESPONSE = """\
 
 @respx.mock
 def test_fetch_soil_profile_extracts_profile_name():
-    respx.get("https://soil-query-production.up.railway.app/soil").mock(
+    respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
         return_value=httpx.Response(200, text=MOCK_SOL_RESPONSE)
     )
     # Mock SoilProfile.from_file to avoid needing DSSAT installed in CI
@@ -98,7 +98,7 @@ def test_fetch_soil_profile_extracts_profile_name():
 
 @respx.mock
 def test_fetch_soil_profile_raises_on_error():
-    respx.get("https://soil-query-production.up.railway.app/soil").mock(
+    respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
         return_value=httpx.Response(500, text="Internal Server Error")
     )
     with pytest.raises(SoilAPIError):

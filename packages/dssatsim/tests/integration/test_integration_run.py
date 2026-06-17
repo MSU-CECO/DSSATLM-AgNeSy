@@ -124,7 +124,7 @@ class TestRunHelpersWithMockedAPIs:
 
     @respx.mock
     def test_setup_soil_returns_soil_profile(self):
-        respx.get("https://soil-query-production.up.railway.app/soil").mock(
+        respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
             return_value=httpx.Response(200, text=MOCK_SOL_TEXT)
         )
         with patch("dssatsim.clients.soil.SoilProfile.from_file") as mock_fp:
@@ -134,7 +134,7 @@ class TestRunHelpersWithMockedAPIs:
 
     @respx.mock
     def test_setup_soil_passes_correct_coordinates(self):
-        route = respx.get("https://soil-query-production.up.railway.app/soil").mock(
+        route = respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
             return_value=httpx.Response(200, text=MOCK_SOL_TEXT)
         )
         with patch("dssatsim.clients.soil.SoilProfile.from_file"):
@@ -264,7 +264,7 @@ class TestRunHelpersWithMockedAPIs:
         respx.get("http://localhost:8001/weather").mock(
             return_value=httpx.Response(200, json=payload)
         )
-        respx.get("https://soil-query-production.up.railway.app/soil").mock(
+        respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
             return_value=httpx.Response(200, text=MOCK_SOL_TEXT)
         )
         mock_dssat = MagicMock()
@@ -284,7 +284,7 @@ class TestRunHelpersWithMockedAPIs:
         respx.get("http://localhost:8001/weather").mock(
             return_value=httpx.Response(200, json=payload)
         )
-        respx.get("https://soil-query-production.up.railway.app/soil").mock(
+        respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
             return_value=httpx.Response(200, text=MOCK_SOL_TEXT)
         )
         mock_dssat = MagicMock()
@@ -304,7 +304,7 @@ class TestRunHelpersWithMockedAPIs:
         respx.get("http://localhost:8001/weather").mock(
             return_value=httpx.Response(200, json=payload)
         )
-        respx.get("https://soil-query-production.up.railway.app/soil").mock(
+        respx.get("https://dsiweb.cse.msu.edu/soil-query-api/soil").mock(
             return_value=httpx.Response(200, text=MOCK_SOL_TEXT)
         )
         mock_dssat = MagicMock()

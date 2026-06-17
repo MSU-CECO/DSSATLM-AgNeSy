@@ -2,7 +2,7 @@
 
 These tests hit the live APIs and require:
   - Weather API running at WEATHER_API_BASE_URL (default: http://localhost:8001)
-  - Soil API reachable at SOIL_API_BASE_URL (default: https://soil-query-production.up.railway.app)
+  - Soil API reachable at SOIL_API_BASE_URL (default: https://dsiweb.cse.msu.edu/soil-query-api)
 
 Run with:
     pytest tests/integration/test_integration_clients.py -v

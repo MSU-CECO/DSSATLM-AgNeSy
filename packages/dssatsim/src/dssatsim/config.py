@@ -7,7 +7,7 @@ load_dotenv()
 # API clients
 WEATHER_API_BASE_URL = os.getenv("WEATHER_API_BASE_URL", "http://localhost:8001")
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY", "")
-SOIL_API_BASE_URL = os.getenv("SOIL_API_BASE_URL", "https://soil-query-production.up.railway.app")
+SOIL_API_BASE_URL = os.getenv("SOIL_API_BASE_URL", "https://dsiweb.cse.msu.edu/soil-query-api")
 
 # Static file paths
 _static = files("dssatsim.static")

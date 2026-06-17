@@ -8,7 +8,7 @@ services:
     env_file:
       - services/weather-api/.env
     volumes:
-      - /data/ceco_user/phd_paper2:/data/ceco_user/phd_paper2:ro
+      - /data/kpodojos/phd_paper2:/data/kpodojos/phd_paper2:ro
     restart: unless-stopped
 
   backend:
