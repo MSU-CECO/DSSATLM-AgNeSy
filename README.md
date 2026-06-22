@@ -8,7 +8,7 @@ Kpodo, J., Nejadhashemi, A. P., Kordjamshidi, P., Eeswaran, R., & Dong, Y. (2026
 
 ## Demo
 
-An online demo can be accessed [here](https://d3c3-35-10-57-240.ngrok-free.app/).
+An online demo can be accessed [here](http://ceco.bae.msu.edu/dssatlm-poc/).
 
 ## Acknowledgments
 
