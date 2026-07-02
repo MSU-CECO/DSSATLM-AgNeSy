@@ -8,7 +8,8 @@ Kpodo, J., Nejadhashemi, A. P., Kordjamshidi, P., Eeswaran, R., & Dong, Y. (2026
 
 ## Demo
 
-An online demo can be accessed [here](http://ceco.bae.msu.edu/dssatlm-poc/).
+Please check out this [recording](https://www.loom.com/share/291e886a8350406e8e7f9a230a66832e) of the proof of concept in action. 
+We are actively working on making it publicly accessible online.
 
 ## Acknowledgments
 
